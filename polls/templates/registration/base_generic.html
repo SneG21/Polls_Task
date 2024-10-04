@@ -1,0 +1,10 @@
+<nav>
+    <ul>
+      {% if user.is_authenticated %}
+        <li>Welcome, {{ user.username }}</li>
+        <li><a href="{% url 'polls:logout' %}">Logout</a></li>
+      {% else %}
+        <li><a href="{% url 'polls:login' %}">Login</a></li>
+      {% endif %}
+    </ul>
+  </nav>

@@ -1,0 +1,24 @@
+<div class="container mt-5">
+    {% if latest_question_list %}
+    <div class="row">
+        {% for question in latest_question_list %}
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a href="{% url 'polls:detail' question.id %}/" class="text-decoration-none">
+                            {{ question.question_text }}
+                        </a>
+                    </h5>
+                    <a href="{% url 'polls:detail' question.id %}/" class="btn btn-primary">
+                        View Poll
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <p class="text-center text-muted">No polls are available.</p>
+    {% endif %}
+</div>
